@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block stylehead %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endblock %}
+{% block title %}HOME{% endblock %}
+
+{% block content %}
+<div class="video-background">
+    <video autoplay muted loop>
+        <source src="{% static 'videos/Bg_video1.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+    
+
+{% endblock %} 
+
+
+
