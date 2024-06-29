@@ -27,7 +27,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active navright" aria-current="page" href="#">Home</a>
+                <a class="nav-link active navright" aria-current="page" href="{% url 'home'%}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link navright" href="#">Contact us</a>
@@ -35,9 +35,22 @@
               <li class="nav-item">
                 <a class="nav-link navright" href="#">About us</a>
               </li>
-              <li class="nav-item">
+              {% comment %} <li class="nav-item">
                 <a class="nav-link navright" href="#">Login</a>
-              </li>
+              </li> {% endcomment %}
+
+
+
+              {% if user.is_authenticated %}
+                <li class="nav-item"><a href="#">Profile</a></li>
+                <li><form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit">Logout</button>
+              </form></li>
+              {% else %}
+                <li class="nav-item"><a href="{% url 'loginPage' %}">Login</a></li>
+                <li class="nav-item"><a href="{% url 'signup' %}">Sign Up</a></li>
+              {% endif %}
               
             </ul>
             
