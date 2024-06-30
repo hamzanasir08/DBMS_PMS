@@ -24,7 +24,7 @@ class CustomUser(AbstractUser):
   email = models.EmailField(unique=True, null=False)
 
   USERNAME_FIELD = 'email'  # Set email as the unique identifier
-  REQUIRED_FIELDS = ['first_name', 'last_name']
+  REQUIRED_FIELDS = ['username','first_name', 'last_name']
 
   # Add related_name arguments to avoid conflicts
   groups = models.ManyToManyField(
